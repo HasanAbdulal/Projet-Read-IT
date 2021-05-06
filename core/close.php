@@ -2,5 +2,5 @@
 /*
     ./core/close.php
 */
-$conn = 'null';
+$conn = null;
 unset($conn);
