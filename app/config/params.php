@@ -9,5 +9,8 @@ define('DB_Name',       'readit_2020');
 define('DB_User',       'root');
 define('DB_PassWord',   'root');
 
+// Formats de dates par défaut
+define('DATE_FORMAT', 'd-m-Y');
+
 // Initialisation des zones dynamiques
 $content = '';
