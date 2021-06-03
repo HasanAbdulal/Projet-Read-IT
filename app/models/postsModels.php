@@ -2,6 +2,7 @@
 /*
     ./app/models/postsModels.php
 */
+namespace App\Models\PostsModels;
 /**
  * Lists des 10 derniers posts
  *
@@ -9,14 +10,14 @@
  * @return array
  */
 
-function findAll(PDO $conn) :array{
+function findAll(\PDO $conn) :array{
     $sql =" SELECT *
             FROM posts
             ORDER BY created_at DESC
             LIMIT 10;
         ";
     $rs = $conn->query($sql);
-    return $rs->fetchAll(PDO::FETCH_ASSOC);
+    return $rs->fetchAll(\PDO::FETCH_ASSOC);
 }
 
 /**
@@ -25,13 +26,13 @@ function findAll(PDO $conn) :array{
  * @param PDO $conn
  * @return array
  */
-function findOneById(PDO $conn, int $id = 1) :array {
+function findOneById(\PDO $conn, int $id = 1) :array {
     $sql =" SELECT *
             FROM posts
             WHERE id = :id;
         ";
     $rs = $conn->prepare($sql);
-    $rs->bindValue(':id', $id, PDO::PARAM_INT);
+    $rs->bindValue(':id', $id, \PDO::PARAM_INT);
     $rs->execute();
-    return $rs->fetch(PDO::FETCH_ASSOC);
+    return $rs->fetch(\PDO::FETCH_ASSOC);
 }

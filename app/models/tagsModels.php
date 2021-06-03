@@ -1,7 +1,8 @@
 <?php
 /*
-
+    ./app/models/tagsModels.php
 */
+namespace App\Models\TagsModels;
 /**
  * Liste des tags d'un post selon son ID
  *
@@ -9,7 +10,7 @@
  * @param integer $id
  * @return array
  */
-function findAllByPostID(PDO $conn, int $id) :array{
+function findAllByPostID(\PDO $conn, int $id) :array{
     $sql =' SELECT *
             FROM tags t
             JOIN posts_has_tags pht ON pht.tag_id = t.id
@@ -17,7 +18,7 @@ function findAllByPostID(PDO $conn, int $id) :array{
             ORDER BY t.name ASC;
         ';
         $rs = $conn->prepare($sql);
-        $rs->bindValue(':id', $id, PDO::PARAM_INT);
+        $rs->bindValue(':id', $id, \PDO::PARAM_INT);
         $rs->execute();
-        return $rs->fetchAll(PDO::FETCH_ASSOC);
+        return $rs->fetchAll(\PDO::FETCH_ASSOC);
 }
