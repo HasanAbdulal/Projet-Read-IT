@@ -17,6 +17,11 @@
         // 1. Je demande le détait d'un post et je le mets dans $post
         include_once '../app/models/postsModels.php';
         $post = findOneById($conn, $id);
+
+        // 1.1 Je demande la liste des tags de ce post au modèle et je les mets dans $tags
+        include_once '../app/models/tagsModels.php';
+        $tags = findAllByPostID($conn, $id); 
+
         // 2. Je charge la vue posts/show dans $content
         GLOBAL $content;
         ob_start();
