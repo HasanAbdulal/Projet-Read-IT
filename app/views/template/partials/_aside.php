@@ -13,17 +13,17 @@
                 </div>
             </form>
     </div>
-
-    <div class="sidebar-box ftco-animate">
-        <div class="categories">
-            <h3>Categories</h3>
-            <li><a href="#">Illustration <span class="ion-ios-arrow-forward"></span></a></li>
-            <li><a href="#">Branding <span class="ion-ios-arrow-forward"></span></a></li>
-            <li><a href="#">Application <span class="ion-ios-arrow-forward"></span></a></li>
-            <li><a href="#">Design <span class="ion-ios-arrow-forward"></span></a></li>
-            <li><a href="#">Marketing <span class="ion-ios-arrow-forward"></span></a></li>
-        </div>
-    </div>
+    
+        <?php
+        // Methode 1
+            include_once '../app/models/categoriesModels.php';
+            $categories = \App\Models\Categories\findAll($conn);
+            include '../app/views/categories/_index.php';
+        ?>
+        <!-- Start Categories -->
+    
+    
+    <!-- End Categories -->
 
     <div class="sidebar-box ftco-animate">
         <h3>Recent Blog</h3>
