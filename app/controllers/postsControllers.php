@@ -6,6 +6,7 @@ namespace App\Controllers\PostsControllers;
 use \App\Models\PostsModels;
 use \App\Models\TagsModels;
 use \App\Models\AuthorsModels;
+use \APP\Models\CommentsModels;
 
 /**
  * Undocumented function
@@ -35,7 +36,11 @@ use \App\Models\AuthorsModels;
 
         // 1.ter Je demande les noms l'auteur du post au modèle et je le mets dans $author
             include_once '../app/models/authorsModels.php';
-            $author = AuthorsModels\findOneByID($conn, $post['author_id']); 
+            $author = AuthorsModels\findOneByID($conn, $post['author_id']);
+
+        // 1.quater  Je demande les commentaires de ce post au modèle et je les mets dans $comment
+            include_once '../app/models/commentsModels.php';
+            $comments = CommentsModels\findAllByPostID($conn, $post['id']);
 
         // 2. Je charge la vue posts/show dans $content
             GLOBAL $content;
