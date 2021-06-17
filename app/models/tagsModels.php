@@ -22,3 +22,19 @@ function findAllByPostID(\PDO $conn, int $id) :array{
         $rs->execute();
         return $rs->fetchAll(\PDO::FETCH_ASSOC);
 }
+
+/**
+ * Lists des tags Cloud
+ *
+ * @param \PDO $conn
+ * @param integer $name
+ * @return array
+ */
+function findAll(\PDO $conn) :array{
+    $sql =' SELECT *
+            FROM tags
+            ORDER BY name ASC;
+            ';
+    $rs = $conn->query($sql);
+    return $rs->fetchAll(\PDO::FETCH_ASSOC);
+}

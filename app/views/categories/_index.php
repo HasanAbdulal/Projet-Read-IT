@@ -2,7 +2,7 @@
 /*
     ./app/views/categories/_index.php
     Varaibles disponibles
-        - $categories ARRAY(ARRAY)
+        - $categories ARRAY(ARRAY(name))
 */
 ?>
 <div class="sidebar-box ftco-animate">

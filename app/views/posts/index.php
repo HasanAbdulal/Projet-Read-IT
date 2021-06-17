@@ -8,9 +8,7 @@
 <div class="container">
     <div class="row d-flex">
         <!--  DEBUT ARTICLE -->
-        <?php 
-            foreach($posts as $post):
-        ?>
+        <?php foreach($posts as $post):  ?>
             <div class="col-md-6 d-flex ftco-animate">
                 <div class="blog-entry justify-content-end">
                 <a href="?postID=<?php echo $post['id']; ?>" class="block-20" style="background-image: url('images/<?php echo $post['image']; ?>');">
